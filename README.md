@@ -56,3 +56,19 @@ This repository also contains Azure resource definitions managed through Azure S
 2. Commit and push changes to GitHub
 3. ArgoCD automatically syncs and applies changes
 4. Azure Service Operator creates/updates Azure resources
+
+## Azure Resources
+
+This repository also contains Azure resource definitions managed through Azure Service Operator and ArgoCD.
+
+### Structure
+
+- `azure-resources/resource-groups/` - Azure Resource Group definitions
+- `azure-resources/storage-accounts/` - Azure Storage Account definitions
+
+### Workflow
+
+1. Define Azure resources as Kubernetes manifests
+2. Commit and push changes to GitHub
+3. ArgoCD automatically syncs and applies changes
+4. Azure Service Operator creates/updates Azure resources

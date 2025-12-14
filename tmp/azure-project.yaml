@@ -1,0 +1,65 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: azure-resources
+  namespace: argocd
+spec:
+  description: "Project for managing Azure resources via ASO"
+
+  # Source repositories - update with your GitHub username
+  sourceRepos:
+  - 'https://github.com/*/platform-self-service.git'
+
+  # Destination clusters and namespaces
+  destinations:
+  - namespace: default
+    server: https://kubernetes.default.svc
+  - namespace: azureserviceoperator-system
+    server: https://kubernetes.default.svc
+  - namespace: 'devops-*'
+    server: https://kubernetes.default.svc
+
+  # Allowed Kubernetes resources - supporting all ASO resource types
+  clusterResourceWhitelist:
+  - group: 'resources.azure.com'
+    kind: '*'
+  - group: 'storage.azure.com'
+    kind: '*'
+  - group: 'keyvault.azure.com'
+    kind: '*'
+  - group: 'managedidentity.azure.com'
+    kind: '*'
+  - group: 'compute.azure.com'
+    kind: '*'
+  - group: 'network.azure.com'
+    kind: '*'
+  - group: 'sql.azure.com'
+    kind: '*'
+  - group: 'web.azure.com'
+    kind: '*'
+  - group: 'cache.azure.com'
+    kind: '*'
+  - group: 'containerservice.azure.com'
+    kind: '*'
+
+  namespaceResourceWhitelist:
+  - group: 'resources.azure.com'
+    kind: '*'
+  - group: 'storage.azure.com'
+    kind: '*'
+  - group: 'keyvault.azure.com'
+    kind: '*'
+  - group: 'managedidentity.azure.com'
+    kind: '*'
+  - group: 'compute.azure.com'
+    kind: '*'
+  - group: 'network.azure.com'
+    kind: '*'
+  - group: 'sql.azure.com'
+    kind: '*'
+  - group: 'web.azure.com'
+    kind: '*'
+  - group: 'cache.azure.com'
+    kind: '*'
+  - group: 'containerservice.azure.com'
+    kind: '*'
